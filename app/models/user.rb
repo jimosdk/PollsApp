@@ -46,8 +46,8 @@ class User < ApplicationRecord
         Poll.
         joins(:questions).
         group(:id).
-        having('COUNT(questions.id) = (?)',subquery).
-        pluck('polls.id,COUNT(questions.id) as answered_questions_count')
+        having('COUNT(questions.id) = (?)',subquery)
+        #.pluck('polls.id,COUNT(questions.id) as answered_questions_count')
 
     end
 

@@ -23,7 +23,8 @@ class Poll < ApplicationRecord
     has_many :questions,
         primary_key: :id,
         foreign_key: :poll_id,
-        class_name: :Question
+        class_name: :Question,
+        dependent: :destroy
 
     def self.create_poll(user,title)
         Poll.create!(author_id: user.id,title:title)

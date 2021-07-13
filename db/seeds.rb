@@ -27,7 +27,10 @@ p = Poll.create_poll(users.sample,"Movie Poll")
         choices << AnswerChoice.create_answer_choice(q,"Rebecca Ferguson in Επικίνδυνη αποστολή: Η πτώση (2018)")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Best Art Films (1920-50s)")
@@ -41,7 +44,10 @@ p = Poll.create_poll(users.sample,"Movie Poll")
         choices << AnswerChoice.create_answer_choice(q,"Le sang d'un poète (1932)")
 
         users.each do |user|
-            Response.create_response(user,choices.sample) if rand(10)>3
+            begin
+            Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Which of these films featuring a fictional film(s) is your favorite?")
@@ -54,7 +60,10 @@ p = Poll.create_poll(users.sample,"Movie Poll")
         choices << AnswerChoice.create_answer_choice(q,"Ξέφρενες νύχτες (1997)")
 
         users.each do |user|
-            Response.create_response(user,choices.sample) if rand(10)>3
+            begin
+            Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
 #<------p2
@@ -73,7 +82,10 @@ p = Poll.create_poll(users.sample,"Video Game Poll")
         choices << AnswerChoice.create_answer_choice(q,"Play dress-up")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
     
     q = Question.create_question(p,"Which of these cat versions do you think would make you laugh the hardest?")
@@ -87,7 +99,10 @@ p = Poll.create_poll(users.sample,"Video Game Poll")
         choices << AnswerChoice.create_answer_choice(q,"Cat Bullet Bill")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
 #<------p3
@@ -101,7 +116,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Tomato soup")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Mac 'n' cheese or spaghetti and meatballs?")
@@ -111,7 +129,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Spaghetti and meatballs")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Chicken and dumplings or pot roast?")
@@ -121,7 +142,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Pot roast")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Ramen or udon?")
@@ -131,7 +155,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Udon")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Fried chicken or meatloaf?")
@@ -141,7 +168,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Meatloaf")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Steamed dumplings or toasted ravioli?")
@@ -151,7 +181,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Toasted ravioli")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Grilled cheese or pizza?")
@@ -161,7 +194,10 @@ p = Poll.create_poll(users.sample,"I'm Sorry, But You Have To Choose Between The
         choices << AnswerChoice.create_answer_choice(q,"Pizza")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
 #<------p4
@@ -175,7 +211,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"Hinny (Ginny and Harry)")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Which professor do you prefer?")
@@ -185,7 +224,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"Professor Snape")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Who's your favorite twin?")
@@ -195,7 +237,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"George")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Which sweet sounds tastier?")
@@ -205,7 +250,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"Chocolate frogs")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Which sidekick reigns supreme?")
@@ -215,7 +263,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"Hagrid")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
     q = Question.create_question(p,"Which spell is superior?")
@@ -225,7 +276,10 @@ p = Poll.create_poll(users.sample,"Where Do You Stand On These Controversial \"H
         choices << AnswerChoice.create_answer_choice(q,"Wingardium Leviosa")
 
         users.each do |user|
+            begin
             Response.create_response(user,choices.sample) if rand(100)> 18
+            rescue => e 
+            end
         end
 
 

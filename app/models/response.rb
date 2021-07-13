@@ -25,7 +25,7 @@ class Response < ApplicationRecord
     belongs_to :user,
         primary_key: :id,
         foreign_key: :user_id,
-        class_name: :User 
+        class_name: :User
 
     belongs_to :answer,
         primary_key: :id,
@@ -46,6 +46,14 @@ class Response < ApplicationRecord
         through: :question,
         source: :responses
 
+    def not_own_poll
+        errors.add(:base,message:"Can\'t respond to own poll") if own_poll?
+    end
+
+    def not_duplicate_response
+        errors.add(:base,message:"Question already answered") if respondent_already_answered?
+    end
+
     def respondent_already_answered?
         sibling_responses.
         where(user_id:user_id).
@@ -54,16 +62,6 @@ class Response < ApplicationRecord
 
     def own_poll?
         poll.author_id == user_id
-    end
-
-    private
-
-    def not_duplicate_response
-        errors.add(:base,message:"Question already answered") if respondent_already_answered?
-    end
-
-    def not_own_poll
-        errors.add(:base,message:"Can\'t respond to own poll") if own_poll?
     end
 
     #Alternative solution 

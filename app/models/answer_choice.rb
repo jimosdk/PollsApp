@@ -27,7 +27,8 @@ class AnswerChoice < ApplicationRecord
     has_many :responses,
         primary_key: :id,
         foreign_key: :answer_id,
-        class_name: :Response
+        class_name: :Response,
+        dependent: :destroy
     
     has_many :users,
         through: :responses,

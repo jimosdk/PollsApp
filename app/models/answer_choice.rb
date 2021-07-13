@@ -20,6 +20,10 @@ class AnswerChoice < ApplicationRecord
         foreign_key: :question_id,
         class_name: :Question
 
+    has_one :poll,
+        through: :question,
+        source: :poll
+
     has_many :responses,
         primary_key: :id,
         foreign_key: :answer_id,

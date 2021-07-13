@@ -16,6 +16,7 @@
 class Response < ApplicationRecord
     validates :answer_id,:user_id,presence:true
     validate :not_duplicate_response
+    validate :not_own_poll
 
     def self.create_response(user,answer)
         Response.create!(user_id:user.id,answer_id:answer.id)
@@ -30,6 +31,10 @@ class Response < ApplicationRecord
         primary_key: :id,
         foreign_key: :answer_id,
         class_name: :AnswerChoice
+
+    has_one :poll,
+        through: :answer,
+        source: :poll
 
     has_one :question,
         through: :answer,
@@ -47,8 +52,18 @@ class Response < ApplicationRecord
         exists?
     end
 
+    def own_poll?
+        poll.author_id == user_id
+    end
+
+    private
+
     def not_duplicate_response
         errors.add(:base,message:"Question already answered") if respondent_already_answered?
+    end
+
+    def not_own_poll
+        errors.add(:base,message:"Can\'t respond to own poll") if own_poll?
     end
 
     #Alternative solution 

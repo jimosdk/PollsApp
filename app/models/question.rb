@@ -32,4 +32,19 @@ class Question < ApplicationRecord
     def self.create_question(poll,text)
         Question.create!(text:text,poll_id:poll.id)
     end
+
+    def results
+        #alternative solution
+        # choices = answer_choices.includes(:responses)
+
+        # choices.each_with_object({}) do |choice,choice_count|
+        #     choice_count[choice.text] = choice.responses.length
+        # end
+
+        answer_choices.
+        left_outer_joins(:responses).
+        group(:id).
+        pluck(:text,'COUNT(responses.id)').
+        to_h
+    end
 end

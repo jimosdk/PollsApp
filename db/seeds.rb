@@ -9,7 +9,7 @@
 
 users = []
 
-250.times do
+50.times do
     begin
         users << User.create!(username:Faker::Internet.unique.username)
     rescue => e 
